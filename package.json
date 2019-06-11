@@ -1,0 +1,27 @@
+{
+  "name": "sellers.json",
+  "version": "0.0.0",
+  "description": "IAB sellers.json generator and parser",
+  "main": "source/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/perry-mitchell/sellers.json.git"
+  },
+  "keywords": [
+    "sellers.json",
+    "iab",
+    "ads.txt"
+  ],
+  "author": "Perry Mitchell <perry@perrymitchell.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/perry-mitchell/sellers.json/issues"
+  },
+  "homepage": "https://github.com/perry-mitchell/sellers.json#readme",
+  "dependencies": {
+    "validate": "^4.5.1"
+  }
+}
