@@ -1,7 +1,7 @@
 const Schema = require("validate");
 
 const BOOL_BIN = val => val === 0 || val === 1;
-const FLOAT = val => Number(val) === val && val % 1 !== 0;
+const POSITIVE_NUMBER = val => Number(val) === val && val >= 0;
 
 let __schema;
 
@@ -19,7 +19,7 @@ function getSchema() {
             version: {
                 type: Number,
                 required: true,
-                use: { FLOAT }
+                use: { POSITIVE_NUMBER }
             },
             identifiers: [{
                 name: {
@@ -62,7 +62,7 @@ function getSchema() {
         });
         __schema.message({
             BOOL_BIN: path => `${path} must be either 0 or 1`,
-            FLOAT: path => `${path} must be a float`
+            POSITIVE_NUMBER: path => `${path} must be a positive number`
         });
     }
     return __schema;

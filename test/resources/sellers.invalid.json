@@ -1,0 +1,54 @@
+{
+    "contact_email": "adops@advertisingsystem.com",
+    "contact_address": "Advertising System Inc., 101 Main Street, New York, NY 10101",
+    "version": 1.0,
+    "identifiers": [{
+        "name": "TAG-ID",
+        "value": "a670c89d4a324e47"
+    }],
+    "sellers": [{
+            "seller_id": "1942009976",
+            "name": "365Scores",
+            "domain": "365Scores.com",
+            "directness": "DIRECT"
+        },
+        {
+            "seller_id": "1397382429",
+            "name": "SpringServe, Inc",
+            "domain": "springserve.com",
+            "directness": "RESELLER"
+        },
+        {
+            "seller_id": "20000000",
+            "name": "Oath",
+            "domain": "oath.com",
+            "directness": "DIRECT",
+            "comment": "NorthAmerica O&O inventory"
+        },
+        {
+            "seller_id": "20000001",
+            "name": "Oath",
+            "domain": "oath.com",
+            "directness": "DIRECT",
+            "comment": "APAC O&O inventory"
+        },
+        {
+            "seller_id": "20000002",
+            "name": "Oath",
+            "domain": "oath.com",
+            "directness": "RESELLER",
+            "comment": "Non O&O inventory"
+        },
+        {
+            "seller_id": "101010101",
+            "domain": "hybridseller.com",
+            "directness": "BOTH",
+            "comment": "Sells both O&O and other seller's inventory"
+        },
+        {
+            "seller_id": "00000001",
+            "directness": "RESELLER",
+            "is_confidential": 1
+        }
+    ]
+}
