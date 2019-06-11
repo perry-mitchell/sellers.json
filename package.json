@@ -1,6 +1,6 @@
 {
   "name": "sellers.json",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "IAB sellers.json generator and parser",
   "main": "source/index.js",
   "scripts": {
