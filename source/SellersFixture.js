@@ -70,6 +70,10 @@ class SellersFixture {
         this._sellersJSON.sellers = [];
     }
 
+    removeExtension() {
+        delete this._sellersJSON.ext;
+    }
+
     removeIdentifier(name) {
         if (!Array.isArray(this._sellersJSON.identifiers)) {
             return false;
@@ -92,6 +96,13 @@ class SellersFixture {
             return true;
         }
         return false;
+    }
+
+    setExtension(extObj) {
+        if (!extObj || typeof extObj !== "object") {
+            throw new Error("Invalid extension object provided");
+        }
+        this._sellersJSON.ext = JSON.parse(JSON.stringify(extObj));
     }
 
     setIdentifier(name, value) {

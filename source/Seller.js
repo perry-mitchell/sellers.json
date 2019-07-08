@@ -4,13 +4,13 @@ class Seller {
     constructor(objRef) {
         this._seller = objRef;
         if (this._seller.is_confidential !== 0 && this._seller.is_confidential !== 1) {
-            this._seller.is_confidential = 0;
+            this._seller.is_confidential = 1;
         }
         this._seller.directness = this._seller.directness || "DIRECT";
     }
 
     get comment() {
-        return typeof this._seller.comment === "string" : this._seller.comment : null;
+        return typeof this._seller.comment === "string" ? this._seller.comment : null;
     }
 
     get directness() {
@@ -18,7 +18,7 @@ class Seller {
     }
 
     get domain() {
-        return typeof this._seller.domain === "string" : this._seller.domain : null;
+        return typeof this._seller.domain === "string" ? this._seller.domain : null;
     }
 
     get isConfidential() {
@@ -26,14 +26,15 @@ class Seller {
     }
 
     get name() {
-        return typeof this._seller.name === "string" : this._seller.name : null;
+        return typeof this._seller.name === "string" ? this._seller.name : null;
     }
 
     set comment(comment) {
         if (comment === null) {
             delete this._seller.comment;
+            return;
         }
-        if (typeof domain !== "string") {
+        if (typeof comment !== "string") {
             throw new Error(`Invalid value for seller comment: ${comment}`);
         }
         this._seller.comment = comment;
@@ -49,6 +50,7 @@ class Seller {
     set domain(domain) {
         if (domain === null) {
             delete this._seller.domain;
+            return;
         }
         if (typeof domain !== "string" || name.length <= 0) {
             throw new Error(`Invalid value for seller domain: ${domain}`);
