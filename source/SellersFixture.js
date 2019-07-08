@@ -2,8 +2,8 @@ const { assertValidSellersJSON, validateSellersJSON } = require("./validate.js")
 const Seller = require("./Seller.js");
 
 class SellersFixture {
-    constructor() {
-        this._sellersJSON = {
+    constructor(sellersJSONObj) {
+        this._sellersJSON = sellersJSONObj || {
             version: 1.0,
             sellers: []
         };
@@ -121,5 +121,20 @@ class SellersFixture {
         assertValidSellersJSON(this.toJSON());
     }
 }
+
+function fromJSON(jsonObj) {
+    return fromString(JSON.stringify(jsonObj));
+}
+
+function fromString(jsonStr) {
+    return new SellersFixture(JSON.parse(jsonStr));
+}
+
+Object.defineProperty(SellersFixture, "fromJSON", {
+    value: fromJSON
+});
+Object.defineProperty(SellersFixture, "fromString", {
+    value: fromString
+});
 
 module.exports = SellersFixture;
