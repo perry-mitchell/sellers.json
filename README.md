@@ -1,7 +1,7 @@
 # Sellers.json
 > Sellers.JSON generator, parser and validator
 
-[![npm version](https://badge.fury.io/js/sellers.json.svg)](https://www.npmjs.com/package/sellers.json)
+[![npm version](https://badge.fury.io/js/sellers.json.svg)](https://www.npmjs.com/package/sellers.json) [![Build Status](https://travis-ci.org/perry-mitchell/sellers.json.svg?branch=master)](https://travis-ci.org/perry-mitchell/sellers.json)
 
 ## About
 
