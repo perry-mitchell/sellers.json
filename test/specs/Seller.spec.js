@@ -80,6 +80,14 @@ describe("Seller", function() {
                 this.seller.isConfidential = 0;
             }).to.throw(/Cannot set isConfidential to 0 when no name specified/i);
         });
+
+        it("can be set to boolean values as well", function() {
+            this.seller.name = "Test name";
+            this.seller.isConfidential = false;
+            expect(this.seller._seller).to.have.property("is_confidential", 0);
+            this.seller.isConfidential = true;
+            expect(this.seller._seller).to.have.property("is_confidential", 1);
+        });
     });
 
     describe("id", function() {

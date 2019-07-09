@@ -67,13 +67,14 @@ class Seller {
     }
 
     set isConfidential(isConf) {
-        if (isConf !== 0 && isConf !== 1) {
-            throw new Error(`Invalid seller confidential value: ${isConf}`);
+        const newVal = (Boolean(isConf) === isConf) ? isConf ? 1 : 0 : isConf;
+        if (newVal !== 0 && newVal !== 1) {
+            throw new Error(`Invalid seller confidential value: ${newVal}`);
         }
-        if (isConf === 0 && !this.name) {
+        if (newVal === 0 && !this.name) {
             throw new Error("Cannot set isConfidential to 0 when no name specified");
         }
-        this._seller.is_confidential = isConf;
+        this._seller.is_confidential = newVal;
     }
 
     set name(name) {
