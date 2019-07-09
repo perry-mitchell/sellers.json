@@ -52,7 +52,7 @@ class Seller {
             delete this._seller.domain;
             return;
         }
-        if (typeof domain !== "string" || name.length <= 0) {
+        if (typeof domain !== "string" || domain.length <= 0) {
             throw new Error(`Invalid value for seller domain: ${domain}`);
         }
         this._seller.domain = domain;
@@ -61,6 +61,9 @@ class Seller {
     set isConfidential(isConf) {
         if (isConf !== 0 && isConf !== 1) {
             throw new Error(`Invalid seller confidential value: ${isConf}`);
+        }
+        if (isConf === 0 && !this.name) {
+            throw new Error("Cannot set isConfidential to 0 when no name specified");
         }
         this._seller.is_confidential = isConf;
     }
