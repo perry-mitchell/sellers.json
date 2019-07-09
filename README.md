@@ -71,3 +71,7 @@ seller.name = "Test Seller";
 seller.isConfidential = false;
 // Seller changes in `Seller` instance are applied automatically
 ```
+
+## See Also
+
+ * [Ads.txt](https://github.com/perry-mitchell/ads.txt): `ads.txt` parser, generator and validator
