@@ -293,6 +293,24 @@ describe("SellersFixture", function() {
     });
 
     describe("static", function() {
+        describe("fromJSON", function() {
+            it("returns a new SellersFixture instance", function() {
+                const fixture = SellersFixture.fromJSON({
+                    version: 1.0,
+                    sellers: []
+                })
+                expect(fixture).to.be.an.instanceOf(SellersFixture);
+            });
+        });
 
+        describe("fromString", function() {
+            it("returns a new SellersFixture instance", function() {
+                const fixture = SellersFixture.fromString(JSON.stringify({
+                    version: 1.0,
+                    sellers: []
+                }))
+                expect(fixture).to.be.an.instanceOf(SellersFixture);
+            });
+        });
     });
 });
