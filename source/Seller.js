@@ -25,8 +25,16 @@ class Seller {
         return this._seller.is_confidential;
     }
 
+    get id() {
+        return this._seller.seller_id;
+    }
+
     get name() {
         return typeof this._seller.name === "string" ? this._seller.name : null;
+    }
+
+    get sellerID() {
+        return this.id;
     }
 
     set comment(comment) {

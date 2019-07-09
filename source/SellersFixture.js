@@ -23,6 +23,10 @@ class SellersFixture {
             : [];
     }
 
+    get sellers() {
+        return this._sellersJSON.sellers.map(seller => Object.assign({}, seller));
+    }
+
     get version() {
         return this._sellersJSON.version;
     }
@@ -30,13 +34,21 @@ class SellersFixture {
     set contactAddress(addr) {
         if (!addr) {
             delete this._sellersJSON.contact_address;
+            return;
+        }
+        if (typeof addr !== "string") {
+            throw new Error(`Invalid value for contactAddress: ${addr}`);
         }
         this._sellersJSON.contact_address = addr;
     }
 
     set contactEmail(email) {
-        if (!addr) {
+        if (!email) {
             delete this._sellersJSON.contact_email;
+            return;
+        }
+        if (typeof email !== "string") {
+            throw new Error(`Invalid value for contactEmail: ${email}`);
         }
         this._sellersJSON.contact_email = email;
     }
@@ -106,7 +118,13 @@ class SellersFixture {
     }
 
     setIdentifier(name, value) {
-        const idIndex = this._sellersJSON.identifiers.findIndex(id => id.name === name);
+        if (!name || typeof name !== "string") {
+            throw new Error(`Invalid identifier name: ${name}`);
+        }
+        if (!value || typeof value !== "string") {
+            throw new Error(`Invalid identifier value: ${value}`);
+        }
+        const idIndex = (this._sellersJSON.identifiers || []).findIndex(id => id.name === name);
         if (idIndex >= 0) {
             this._sellersJSON.identifiers[idIndex].value = value;
         } else {

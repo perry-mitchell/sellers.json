@@ -2,7 +2,9 @@ const Seller = require("../../source/Seller.js");
 
 describe("Seller", function() {
     beforeEach(function() {
-        this.seller = new Seller({});
+        this.seller = new Seller({
+            seller_id: "1234"
+        });
     });
 
     it("sets directness automatically", function() {
@@ -80,6 +82,17 @@ describe("Seller", function() {
         });
     });
 
+    describe("id", function() {
+        it("returns the seller ID", function() {
+            expect(this.seller.id).to.equal("1234");
+        });
+
+        it("is read-only", function() {
+            this.seller.id = "5678";
+            expect(this.seller.id).to.equal("1234");
+        });
+    });
+
     describe("name", function() {
         it("can be set to a string", function() {
             this.seller.name = "test.com";
@@ -111,6 +124,12 @@ describe("Seller", function() {
             this.seller._seller.ext = {};
             this.seller.removeExtension();
             expect(this.seller._seller).to.not.have.property("ext");
+        });
+    });
+
+    describe("sellerID", function() {
+        it("returns the seller ID", function() {
+            expect(this.seller.sellerID).to.equal("1234");
         });
     });
 
